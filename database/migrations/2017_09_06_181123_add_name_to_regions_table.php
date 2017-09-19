@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegionsTable extends Migration
+class AddNameToRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateRegionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('regions', function (Blueprint $table) {
-            $table->integer('regionNo')->primary();
-            $table->string('regionName',30);
-            $table->timestamps();
+        Schema::table('regions', function (Blueprint $table) {
+              $table->string('regionname'); 
+              $table->renameColumn('id', 'regionid');
+   
+            //
         });
     }
 
@@ -27,6 +28,8 @@ class CreateRegionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regions');
+        Schema::table('regions', function (Blueprint $table) {
+            //
+        });
     }
 }

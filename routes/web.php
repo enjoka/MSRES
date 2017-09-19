@@ -16,3 +16,9 @@ Route::get('/', function () {
 });
 
 Route::resource('courses','CoursesController');
+Route::resource('regions','RegionsController');
+Route::resource('results','resultcontroller');
+Route::resource('candidates','candidatecontroller');
+Route::resource('districts','districtcontroller');
+Route::resource('centres','centrecontroller');
+Route::resource('results','resultcontroller');

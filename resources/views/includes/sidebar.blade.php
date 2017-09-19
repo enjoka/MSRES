@@ -16,7 +16,7 @@
                         <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Home</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa  fa-users"></i> Users<span class="fa arrow"></span></a>
+                        <a href="/"><i class="fa  fa-users"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -53,7 +53,7 @@
                         <a href="#"><i class="fa fa-cog"></i> Parameters<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Second Level Item</a>
+                                <a href="regions">Region</a>
                             </li>
                             <li>
                                 <a href="#">Third Level <span class="fa arrow"></span></a>
