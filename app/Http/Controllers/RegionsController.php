@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\region;
+use Session;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -50,8 +51,10 @@ class RegionsController extends Controller
     {
         //
 
+        //return $request->all();
+
         $rules = array(
-            'regionName' => 'required',
+            'name' => 'required',
             );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -61,16 +64,13 @@ class RegionsController extends Controller
                 ->withErrors($validator);
                } 
 
-
-        else
-
-             {
-            // store
+        else {
+            // save reion
                 $region = new Region;
-                $region->regionname = Input::get('regionname');
+                $region->regionname = Input::get('name');
                 $region->save();
 
-                // redirect
+                // redirect after succesful saving
                 Session::flash('message', 'Successfully created region!');
                 return Redirect::to('regions');
             }

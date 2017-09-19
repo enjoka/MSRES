@@ -9,13 +9,15 @@
 
 
 
+
+
   {!! Form::open([
       'route' => 'regions.store'
   ]) !!}
 
   <div class="form-group">
-      {!! Form::label('title', 'RegionName:', ['class' => 'control-label']) !!}
-      {!! Form::text('title', null, ['class' => 'form-control']) !!}
+      {!! Form::label('name', 'RegionName:', ['class' => 'control-label']) !!}
+      {!! Form::text('name', null, ['class' => 'form-control']) !!}
   </div>
 
   
