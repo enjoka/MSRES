@@ -4,22 +4,22 @@
 
         <title>MSRes</title>
             <!-- Bootstrap Core CSS -->
-            <link href="css/bootstrap.min.css" rel="stylesheet">
+            {!! Html::style("css/bootstrap.min.css" ) !!}
 
             <!-- MetisMenu CSS -->
-            <link href="css/metisMenu.min.css" rel="stylesheet">
+            {!! Html::style("css/metisMenu.min.css" ) !!}
 
             <!-- Timeline CSS -->
-            <link href="css/timeline.css" rel="stylesheet">
+            {!! Html::style("css/timeline.css" ) !!}
 
             <!-- Custom CSS -->
-            <link href="css/startmin.css" rel="stylesheet">
+            {!! Html::style("css/startmin.css" ) !!}
 
             <!-- Morris Charts CSS -->
-            <link href="css/morris.css" rel="stylesheet">
+            {!! Html::style("css/morris.css" ) !!}
 
             <!-- Custom Fonts -->
-            <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            {!! Html::style("css/font-awesome.min.css" ) !!}
 
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,6 +29,6 @@
             <![endif]-->
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+       <!-- {!! Html::style("https://fonts.googleapis.com/css?family=Raleway:100,600" ) !!}->
 
    

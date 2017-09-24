@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Region;
 use DB;
-use App\region;
-use Session;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Session;
 
 
 class RegionsController extends Controller
@@ -21,12 +20,12 @@ class RegionsController extends Controller
      */
     public function index()
     {
-      
 
-        $regions = region::all();
 
-        return view('regions.index',compact('regions'));
-                //
+        $regions = Region::all();
+
+        return view('regions.index', compact('regions'));
+        //
     }
 
     /**
@@ -38,52 +37,35 @@ class RegionsController extends Controller
     {
         //
 
-            return view('regions.create');
+        return view('regions.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
 
-        //return $request->all();
-
-        $rules = array(
-            'name' => 'required',
-            );
-
-        $validator = Validator::make(Input::all(), $rules);
-
-        if ($validator->fails()) {
-            return Redirect::to('regions/create')
-                ->withErrors($validator);
-               } 
-
-        else {
-            // save reion
-                $region = new Region;
-                $region->regionname = Input::get('name');
-                $region->save();
-
-                // redirect after succesful saving
-                Session::flash('message', 'Successfully created region!');
-                return Redirect::to('regions');
-            }
+        $this->validate($request, ['name' => 'required']);
 
 
+          Region::create(['regionname' => $request->get('name')]);
+        // save reion
 
-            
+              // redirect after succesful saving
+        Session::flash('message', 'Successfully created region!');
+        return redirect('regions');
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -94,36 +76,66 @@ class RegionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
+
+        $region = Region::findOrFail($id);
+
+        return view('regions.edit', compact('region'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        //return $request->all();
+
+       //dd($request->all());
+
+
+
+        $this->validate($request, [
+
+            'name' => 'required',
+            'id' =>'required'
+
+        ]);
+
+        $region = Region::findOrFail($request->get('id'));
+
+        $region->update(['regionname'=>$request->get('name')]);
+
+        Session::flash('flash_message', 'region successfully added!');
+
+        return redirect()->route('regions.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($regionid)
+    public function destroy($id)
     {
         //
-        region::where('regionid,$regionid')->delete();
-        return response()->json(['success'=>"region Deleted successfully.", 'tr'=>'tr_'.$regionid]);
+
+        $region = Region::findOrFail($id);
+
+        $region->delete();
+
+        Session::flash('flash_message', 'Region successfully deleted!');
+
+        return redirect()->route('regions.index');
     }
 }

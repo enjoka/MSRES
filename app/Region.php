@@ -4,7 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class centre extends Model
+class Region extends Model
 {
     //
+
+    protected $fillable = ['regionname'];
+
+
 }
