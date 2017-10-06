@@ -1,7 +1,9 @@
 
 
 
+@extends('layouts.admin')
 
+@section('content')
 
 
 
@@ -39,3 +41,4 @@
   {!! Form::close() !!}
 
 
+@endsection

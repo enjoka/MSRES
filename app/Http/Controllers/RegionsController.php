@@ -24,6 +24,7 @@ class RegionsController extends Controller
 
         $regions = Region::all();
 
+
         return view('regions.index', compact('regions'));
         //
     }
@@ -104,18 +105,13 @@ class RegionsController extends Controller
 
 
 
-        $this->validate($request, [
-
-            'name' => 'required',
-            'id' =>'required'
-
-        ]);
+        $this->validate($request, ['name' => 'required', 'id' =>'required']);
 
         $region = Region::findOrFail($request->get('id'));
 
         $region->update(['regionname'=>$request->get('name')]);
 
-        Session::flash('flash_message', 'region successfully added!');
+        Session::flash('flash_message', 'region successfully updated!');
 
         return redirect()->route('regions.index');
     }

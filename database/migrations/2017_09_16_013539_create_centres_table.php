@@ -14,7 +14,7 @@ class CreateCentresTable extends Migration
     public function up()
     {
         Schema::create('centres', function (Blueprint $table) {
-            $table->increments('centreId');
+            $table->increments('id');
             $table->string('centreName');
             $table->integer('districtId');
             $table->timestamps();

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
+use Session;
 
 class CoursesController extends Controller
 {
@@ -14,7 +16,10 @@ class CoursesController extends Controller
     public function index()
     {
         //
-        return view('courses.index');
+        $courses = Course::all();
+
+
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -25,6 +30,7 @@ class CoursesController extends Controller
     public function create()
     {
         //
+        return view('courses.create');
     }
 
     /**
@@ -35,7 +41,17 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //dd($request);
+
+        $this->validate($request, ['cocode' => 'required','coname' => 'required']);
+
+
+        Course::create(['course_name' => $request->get('coname'), 'course_code' => $request->get('cocode')]);
+
+        Session::flash('message', 'Successfully created region!');
+        return redirect('courses');
+        
     }
 
     /**
@@ -58,6 +74,9 @@ class CoursesController extends Controller
     public function edit($id)
     {
         //
+        $course = Course::findOrFail($id);
+
+        return view('courses.edit', compact('course'));
     }
 
     /**
@@ -69,7 +88,17 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request);
         //
+        $this->validate($request, ['cocode' => 'required', 'coname' => 'required','id' => 'required']);
+
+        $course = Course::findOrFail($request->get('id'));
+
+        $course->update(['course_code' => $request->get('cocode'), 'course_name' => $request->get('coname')]);
+
+        Session::flash('flash_message', 'Course successfully updated!');
+
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -81,5 +110,14 @@ class CoursesController extends Controller
     public function destroy($id)
     {
         //
+        $course = Course::findOrFail($id);
+
+        //dd($district);
+
+        $course->delete();
+
+        Session::flash('flash_message', 'course successfully deleted!');
+
+        return redirect()->route('courses.index');
     }
 }

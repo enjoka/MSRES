@@ -17,8 +17,7 @@ Route::get('/', function () {
 
 Route::resource('courses','CoursesController');
 Route::resource('regions','RegionsController');
-Route::resource('results','resultcontroller');
-Route::resource('candidates','candidatecontroller');
-Route::resource('districts','districtcontroller');
-Route::resource('centres','centrecontroller');
-Route::resource('results','resultcontroller');
+Route::resource('candidates','CandidatesController');
+Route::resource('districts','DistrictsController');
+Route::resource('centres','CentresController');
+Route::resource('results','ResultsController');

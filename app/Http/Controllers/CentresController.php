@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Centre;
+use App\Models\District;
+use Session;
 
-class resultcontroller extends Controller
+class CentresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,11 @@ class resultcontroller extends Controller
      */
     public function index()
     {
-        //
+
+        $centres = Centre::all();
+        $districts = District::all();
+
+        return view('centres.index', compact('districts', 'centres'));
     }
 
     /**
@@ -24,6 +31,10 @@ class resultcontroller extends Controller
     public function create()
     {
         //
+        $district = District::pluck('districtName', 'id');
+
+
+        return view('Centres.create', compact('district'));
     }
 
     /**
@@ -35,6 +46,13 @@ class resultcontroller extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, ['name' => 'required', 'district' => 'required']);
+
+
+        Centre::create(['centreName' => $request->get('name'), 'districtId' => $request->get('district')]);
+
+        Session::flash('message', 'Successfully created Centre!');
+        return redirect('centres');
     }
 
     /**

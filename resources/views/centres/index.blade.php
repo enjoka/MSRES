@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
-@section('title','regions')
+@section('title','centres')
 
 @section('content')
 
 
 
 
-    <a href="{{ URL::to('regions/create') }}" class="btn btn-primary">Create Region</a> <br/>
+    <a href="{{ URL::to('centres/create') }}" class="btn btn-primary">Create</a> <br/>
 
-    Regions list <br>
+    Centre list <br>
 
     <!-- will be used to show any messages -->
 
@@ -26,29 +26,29 @@
         <thead>
         <tr>
 
-            <th>Region Number</th>
-            <th>Region Name</th>
+            <th>Centre Id</th>
+            <th>Centre Number</th>
+            <th>Centre Name</th>
             <th>Edit</th>
             <th>delete</th>
         </tr>
         </thead>
         <tbody>
-        @if($regions->count())
+        @if($centres->count())
 
-            @foreach($regions as $key => $region)
-                <tr id="tr_{{$region->id}}">
+            @foreach($centres as $key => $centre)
+                <tr id="tr_{{$centre->id}}">
                     <td>{{ ++$key }}</td>
-                    <td>{{ $region->regionname }}</td>
-
-
-                    <td><a href="{{route('regions.edit', ['region' => $region->id])}}"> edit</a></td>
+                    <td>00000</td>
+                    <td>{{ $centre->centreName }}</td>
+                    <td><a href="{{route('centres.edit', ['centre' => $centre->id])}}"> edit</a></td>
 
                     <td class="btn btn-default">
                         {!! Form::open([
                             'method' => 'DELETE',
-                            'route' => ['regions.destroy', $region->id]
+                            'route' => ['centres.destroy', $centre->id]
                                       ]) !!}
-                        {!! Form::submit('Delete this region?', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::submit('Delete?', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>

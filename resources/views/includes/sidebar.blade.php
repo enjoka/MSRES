@@ -15,23 +15,7 @@
                     <li>
                         <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Home</a>
                     </li>
-                    <li>
-                        <a href="/"><i class="fa  fa-users"></i> Users<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    
+
                     <li>
                         <a href="#"><i class="fa fa-book"></i> Results<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -53,7 +37,29 @@
                         <a href="#"><i class="fa fa-cog"></i> Parameters<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="regions">Region</a>
+                                {{link_to_action('RegionsController@index',$title='Regions')}}
+                            </li>
+
+                            <li>
+                                {{link_to_action('DistrictsController@index',$title='Districts')}}
+                            </li>
+
+                            <li>
+                                {{ link_to_action('CentresController@index',$title='Centres')}}
+                            </li>
+
+                            <li>
+                                {{ link_to_action('CoursesController@index',$title='Courses')}}
+                            </li>
+
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart"></i> Reports<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Item</a>
                             </li>
                             <li>
                                 <a href="#">Third Level <span class="fa arrow"></span></a>
@@ -65,9 +71,9 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart"></i> Reports<span class="fa arrow"></span></a>
+                        <a href="/"><i class="fa  fa-users"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>

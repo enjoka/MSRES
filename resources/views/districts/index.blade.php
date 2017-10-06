@@ -7,9 +7,9 @@
 
 
 
-    <a href="{{ URL::to('regions/create') }}" class="btn btn-primary">Create Region</a> <br/>
+    <a href="{{ URL::to('districts/create') }}" class="btn btn-primary">Create District</a> <br/>
 
-    Regions list <br>
+    District list <br>
 
     <!-- will be used to show any messages -->
 
@@ -26,29 +26,29 @@
         <thead>
         <tr>
 
-            <th>Region Number</th>
-            <th>Region Name</th>
+            <th>District Number</th>
+            <th>District Name</th>
             <th>Edit</th>
             <th>delete</th>
         </tr>
         </thead>
         <tbody>
-        @if($regions->count())
+        @if($districts->count())
 
-            @foreach($regions as $key => $region)
-                <tr id="tr_{{$region->id}}">
+            @foreach($districts as $key => $district)
+                <tr id="tr_{{$district->id}}">
                     <td>{{ ++$key }}</td>
-                    <td>{{ $region->regionname }}</td>
+                    <td>{{ $district->districtName }}</td>
 
 
-                    <td><a href="{{route('regions.edit', ['region' => $region->id])}}"> edit</a></td>
+                    <td><a href="{{route('districts.edit', ['district' => $district->id])}}"> edit</a></td>
 
                     <td class="btn btn-default">
                         {!! Form::open([
                             'method' => 'DELETE',
-                            'route' => ['regions.destroy', $region->id]
+                            'route' => ['districts.destroy', $district->id]
                                       ]) !!}
-                        {!! Form::submit('Delete this region?', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::submit('Delete?', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>
