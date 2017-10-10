@@ -32,6 +32,11 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="/candidates"><i class="fa  fa-users"></i> Candidates<span class="fa arrow"></span></a>
+
+                    </li>
                     
                     <li>
                         <a href="#"><i class="fa fa-cog"></i> Parameters<span class="fa arrow"></span></a>

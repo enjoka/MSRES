@@ -16,11 +16,11 @@ class CreateCandidatesTable extends Migration
         Schema::create('candidates', function (Blueprint $table) {
            
             $table->increments('id');
-            $table->string('cand_exam_id');
-            $table->string('candidateName');
-            $table->integer('candidateTypeId');
-            $table->integer('centreNo');
-            $table->integer('ExamYear');
+            $table->string('candidate_exam_id');
+            $table->string('candidate_name');
+            $table->integer('candidate_type_id');
+            $table->integer('centre_no');
+            $table->integer('exam_year');
             $table->timestamps();
         });
     }

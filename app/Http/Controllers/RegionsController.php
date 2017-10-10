@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Region;
+use App\Models\Region;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;

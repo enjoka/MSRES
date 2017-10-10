@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::resource('courses','CoursesController');
 Route::resource('regions','RegionsController');
+Route::get('candidates/importExport','CandidatesController@importExport');
+Route::get('downloadExcel/{type}', 'CandidatesController@downloadExcel');
+Route::post('importExcel', 'CandidatesController@importExcel');
 Route::resource('candidates','CandidatesController');
 Route::resource('districts','DistrictsController');
 Route::resource('centres','CentresController');
