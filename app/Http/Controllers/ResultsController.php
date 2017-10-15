@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Result;
+use Excel;
+
 class ResultsController extends Controller
 {
     /**
@@ -14,6 +17,8 @@ class ResultsController extends Controller
     public function index()
     {
         //
+        $results = Result::all();
+        return view('results.index',compact('results'));
     }
 
     /**
@@ -80,5 +85,87 @@ class ResultsController extends Controller
     public function destroy($id)
     {
         //
+
     }
+
+    public function remove()
+    {
+        dd();
+        $checked = Request::input('checked',[]);
+
+        dd($checked);
+    }
+
+    public function importExport()
+    {
+
+
+
+        return view('results.importExport');
+    }
+
+    public function downloadExcel(Request $request, $type)
+    {
+        //dd($type);
+        $data = Result::get()->toArray();
+
+
+
+
+        return Excel::create('Result_sheet', function($excel) use ($data) {
+            $excel->sheet('resultspercourse', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
+    }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function importExcel(Request $request)
+    {
+        //dd($request);
+
+        if($request->file('imported_file'))
+        {
+            $path = $request->file('imported_file')->getRealPath();
+
+            $data = Excel::load($path, function($reader)
+            {
+            })->get();
+
+
+
+            if(!empty($data) && $data->count())
+            {
+                foreach ($data->toArray() as $row)
+                {
+                    if(!empty($row))
+                    {
+                        $dataArray[] =
+                            [
+                                'candidate_exam_id' => $row['candidate_id'],
+                                'course_code' => $row['course_code'],
+                                'grade'=>$row['grade'],
+                                'created_at' => date('Y-m-d H:i:s'),
+                                'updated_at' => date('Y-m-d H:i:s')
+
+                            ];
+                    }
+                }
+
+                if(!empty($dataArray))
+                {
+                    Result::insert($dataArray);
+
+                    return back()->with('success','Insert Record successfully.');
+                }
+            }
+        }
+        return back()->with('error','Please Check your file, Something is wrong there.');
+    }
+
 }

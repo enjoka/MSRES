@@ -17,21 +17,8 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-book"></i> Results<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                        <a href="/results"><i class="fa fa-book"></i> Results<span class="fa arrow"></span></a>
+
 
                     <li>
                         <a href="/candidates"><i class="fa  fa-users"></i> Candidates<span class="fa arrow"></span></a>

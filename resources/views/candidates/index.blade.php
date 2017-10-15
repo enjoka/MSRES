@@ -53,6 +53,7 @@
             <th>id</th>
             <th>Examination Number</th>
             <th>Candidate Name</th>
+            <th>sex</th>
             <th>Candidate Type</th>
             <th>Centre Number</th>
             <th>Exams Year</th>
@@ -70,6 +71,7 @@
                     <td>{{ ++$key }}</td>
                     <td>{{ $candidate->candidate_exam_id }}</td>
                     <td>{{ $candidate->candidate_name }}</td>
+                    <td>{{ $candidate->candidate_sex }}</td>
                     <td>{{ $candidate->candidate_type_id }}</td>
                     <td>{{ $candidate->centre_no }}</td>
                     <td>{{ $candidate->exam_year }}</td>

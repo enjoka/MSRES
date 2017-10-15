@@ -23,4 +23,8 @@ Route::post('importExcel', 'CandidatesController@importExcel');
 Route::resource('candidates','CandidatesController');
 Route::resource('districts','DistrictsController');
 Route::resource('centres','CentresController');
+Route::get('results/importExport','ResultsController@importExport');
+Route::get('downloadExcel/{type}', 'ResultsController@downloadExcel');
+Route::post('importExcel', 'ResultsController@importExcel');
+Route::get('results/remove', 'ResultsController@remove');
 Route::resource('results','ResultsController');

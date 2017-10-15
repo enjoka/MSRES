@@ -89,6 +89,8 @@ class CandidatesController extends Controller
         //
     }
 
+
+
     public function importExport()
     {
 
@@ -136,6 +138,7 @@ class CandidatesController extends Controller
                             [
                                 'candidate_exam_id' => $row['exam_id'],
                                 'candidate_name' => $row['candidate_name'],
+                                'candidate_sex'=>$row['candidate_sex'],
                                 'candidate_type_id' => $row['type'],
                                 'centre_no' => $row['centre_no'],
                                 'exam_year' => $row['year'],

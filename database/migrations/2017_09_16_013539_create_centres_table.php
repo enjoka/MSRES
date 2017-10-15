@@ -13,11 +13,13 @@ class CreateCentresTable extends Migration
      */
     public function up()
     {
+
         Schema::create('centres', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('centreName');
-            $table->integer('districtId');
+            $table->string('centre_no');
+            $table->integer('district_no');
             $table->timestamps();
+
         });
     }
 

@@ -13,11 +13,13 @@ class CreateDistrictsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('districts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('districtName');
-            $table->integer('regionId');
+            $table->string('district_name');
+            $table->integer('region_no');
             $table->timestamps();
+
         });
     }
 
