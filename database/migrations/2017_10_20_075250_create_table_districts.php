@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDistrictsTable extends Migration
+class CreateTableDistricts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateDistrictsTable extends Migration
      */
     public function up()
     {
-
         Schema::create('districts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('district_name');
-            $table->integer('region_no');
-            $table->timestamps();
+            $table->integer('region_no')->unsigned()->nullable();
 
+            $table->foreign('region_no')
+                ->references('id')->on('regions')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
+            $table->timestamps();
         });
     }
 

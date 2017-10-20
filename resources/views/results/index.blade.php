@@ -8,7 +8,6 @@
 
 
 
-
     <div class="row">
         <div class="col-xs-offset 1 col-xs-11 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
             <div class="btn-toolbar" role="toolbar">
@@ -26,7 +25,7 @@
                     </div>
 
                     <div class="btn-group" role="group">
-                        <button id="delete" class="btn btn-warning" ,type="submit" onclick="window.location='{{ action('ResultsController@remove')}}'"data-original-title="Delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+                        <button id="delete" class="btn btn-warning delete_all" ,type="submit" onclick="window.location='{{ action('ResultsController@remove')}}'"data-original-title="Delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
@@ -62,7 +61,7 @@
             @foreach($results as $key => $result)
                 <tr id="tr_{{$result->id}}">
                     <td>
-                        <input type="checkbox" id="checkbox1">
+                        <input type="checkbox" name="checkbox[]" id="checkbox1" value="{{$result->id}}">
 
                     </td>
                     <td>{{ ++$key }}</td>
@@ -84,3 +83,4 @@
 
 
 @stop
+

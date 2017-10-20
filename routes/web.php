@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
+
+
 
 Route::resource('courses','CoursesController');
 Route::resource('regions','RegionsController');
@@ -28,3 +30,7 @@ Route::get('downloadExcel/{type}', 'ResultsController@downloadExcel');
 Route::post('importExcel', 'ResultsController@importExcel');
 Route::get('results/remove', 'ResultsController@remove');
 Route::resource('results','ResultsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

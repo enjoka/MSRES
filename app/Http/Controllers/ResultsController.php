@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Result;
 use Excel;
+use Illuminate\Support\Facades\Input;
 
 class ResultsController extends Controller
 {
@@ -88,9 +89,14 @@ class ResultsController extends Controller
 
     }
 
-    public function remove()
+    public function remove(Request $request)
     {
-        dd();
+
+        dd($request);
+        //$myCheckboxes = $request->input('checkbox');
+        $myCheckboxes = $request->all();
+        dd($myCheckboxes);
+
         $checked = Request::input('checked',[]);
 
         dd($checked);
@@ -167,5 +173,8 @@ class ResultsController extends Controller
         }
         return back()->with('error','Please Check your file, Something is wrong there.');
     }
+
+
+
 
 }
