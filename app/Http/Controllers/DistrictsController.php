@@ -8,6 +8,7 @@ use App\Models\Region;
 use Illuminate\Http\Request;
 use Session;
 
+
 class DistrictsController extends Controller
 {
     /**
@@ -15,6 +16,9 @@ class DistrictsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function index()
     {
         //
@@ -34,7 +38,7 @@ class DistrictsController extends Controller
     public function create()
     {
         //
-        $regions = Region::pluck('regionname', 'id');
+        $regions = Region::pluck('region_name', 'id');
 
 
         return view('districts.create', compact('regions'));
@@ -54,7 +58,7 @@ class DistrictsController extends Controller
         $this->validate($request, ['name' => 'required', 'region' => 'required']);
 
 
-        District::create(['districtName' => $request->get('name'), 'regionId' => $request->get('region')]);
+        District::create(['district_name' => $request->get('name'), 'region_no' => $request->get('region')]);
 
         Session::flash('message', 'Successfully created District!');
         return redirect('districts');
@@ -82,7 +86,7 @@ class DistrictsController extends Controller
         //
         $district = District::findOrFail($id);
 
-        $region = Region::pluck('regionname', 'id');
+        $region = Region::pluck('region_name', 'id');
 
         return view('districts.edit', compact('district', 'region'));
 
@@ -103,9 +107,9 @@ class DistrictsController extends Controller
 
         $district = District::findOrFail($request->get('id'));
 
-        dd($district);
+        //dd($district);
 
-        $district->update(['districtName' => $request->get('name'), 'regionId' => $request->get('region')]);
+        $district->update(['district_name' => $request->get('name'), 'region_no' => $request->get('region')]);
 
         Session::flash('flash_message', 'District successfully updated!');
 

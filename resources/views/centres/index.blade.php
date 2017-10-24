@@ -39,8 +39,8 @@
             @foreach($centres as $key => $centre)
                 <tr id="tr_{{$centre->id}}">
                     <td>{{ ++$key }}</td>
-                    <td>00000</td>
-                    <td>{{ $centre->centreName }}</td>
+                    <td>{{$centre->centre_no}}</td>
+                    <td>{{ $centre->centre_name }}</td>
                     <td><a href="{{route('centres.edit', ['centre' => $centre->id])}}"> edit</a></td>
 
                     <td class="btn btn-default">

@@ -14,6 +14,11 @@ class CentresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+        $this->middleware(['auth', 'clearance']);
+    }
+
     public function index()
     {
 
@@ -31,7 +36,7 @@ class CentresController extends Controller
     public function create()
     {
         //
-        $district = District::pluck('districtName', 'id');
+        $district = District::pluck('district_name', 'id');
 
 
         return view('Centres.create', compact('district'));
@@ -45,11 +50,14 @@ class CentresController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $this->validate($request, ['name' => 'required', 'district' => 'required']);
+        //dd($request);
+
+        $this->validate($request, ['centre_no' => 'required','centre_name' => 'required', 'district_no' => 'required']);
 
 
-        Centre::create(['centreName' => $request->get('name'), 'districtId' => $request->get('district')]);
+        Centre::create(['centre_no' => $request->get('centre_no'),
+                        'centre_name' => $request->get('centre_name'),
+                        'district_no' => $request->get('district_no')]);
 
         Session::flash('message', 'Successfully created Centre!');
         return redirect('centres');

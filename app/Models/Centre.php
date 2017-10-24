@@ -8,6 +8,6 @@ class Centre extends Model
 {
     //
 
-    protected $fillable = array('districtId','centreName');
+    protected $fillable = array('district_no','centre_name','centre_no');
 
 }

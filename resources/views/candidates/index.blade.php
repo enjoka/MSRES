@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="btn-group" role="group">
-                        <button id="upload" class="btn btn-primary" onclick="window.location='{{ action('CandidatesController@importExport')}}'" data-original-title="upload" ><i class="fa fa-upload fa-lg" aria-hidden="true"></i></button>
+                        <button id="upload" class="btn btn-primary" onclick="window.location='{{ action('CandidatesController@importExpor')}}'" data-original-title="upload" ><i class="fa fa-upload fa-lg" aria-hidden="true"></i></button>
                     </div>
                     <div class="btn-group" role="group">
                         <button id="Edit" class="btn btn-primary" data-original-title="Exit Data"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i></button>

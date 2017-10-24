@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class District extends Model
 {
     //
-    protected $fillable = array('districtName','regionId');
+    protected $fillable = array('district_name','region_no');
 }

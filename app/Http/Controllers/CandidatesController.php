@@ -10,6 +10,11 @@ use Excel;
 
 class CandidatesController extends Controller
 {
+
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -91,13 +96,13 @@ class CandidatesController extends Controller
 
 
 
-    public function importExport()
+    public function importExpor()
     {
 
-       return view('candidates.importExport');
+       return view('candidates.importExpor');
     }
 
-    public function downloadExcel(Request $request, $type)
+    public function downloadExce(Request $request, $type)
     {
         //dd($type);
         $data = Candidate::get()->toArray();
@@ -116,7 +121,7 @@ class CandidatesController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function importExcel(Request $request)
+    public function importEx(Request $request)
     {
         //dd($request);
 
@@ -125,8 +130,12 @@ class CandidatesController extends Controller
             $path = $request->file('imported_file')->getRealPath();
 
             $data = Excel::load($path, function($reader)
+
+
             {
             })->get();
+
+
 
             if(!empty($data) && $data->count())
             {
@@ -136,10 +145,12 @@ class CandidatesController extends Controller
                     {
                         $dataArray[] =
                             [
-                                'candidate_exam_id' => $row['exam_id'],
+                                'candidate_exam_id' => $row['candidate_id'],
                                 'candidate_name' => $row['candidate_name'],
-                                'candidate_sex'=>$row['candidate_sex'],
-                                'candidate_type_id' => $row['type'],
+                                'candidate_sex' => $row['sex'],
+                                'email' => $row['email'],
+                                'phone number' => $row['phone_no'],
+                                'category_id' => $row['category'],
                                 'centre_no' => $row['centre_no'],
                                 'exam_year' => $row['year'],
                                 'created_at' => date('Y-m-d H:i:s'),

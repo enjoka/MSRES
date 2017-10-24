@@ -25,7 +25,7 @@
 
                 <h3>Import File Form:</h3>
 
-                <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" action="{{ URL::to('importExcel') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" action="{{ URL::to('importEx') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
 
                     <input type="file" name="imported_file" />
                     {{ csrf_field() }}
@@ -40,9 +40,9 @@
 
                 <h3>Registration forms Templates:</h3>
                 <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
-                    <a href="{{ url('downloadExcel/xls') }}"><button class="btn btn-success btn-lg">Download Excel xls</button></a>
-                    <a href="{{ url('downloadExcel/xlsx') }}"><button class="btn btn-success btn-lg">Download Excel xlsx</button></a>
-                    <a href="{{ url('downloadExcel/csv') }}"><button class="btn btn-success btn-lg">Download CSV</button></a>
+                    <a href="{{ url('downloadExce/xls') }}"><button class="btn btn-success btn-lg">Download Excel xls</button></a>
+                    <a href="{{ url('downloadExce/xlsx') }}"><button class="btn btn-success btn-lg">Download Excel xlsx</button></a>
+                    <a href="{{ url('downloadExce/csv') }}"><button class="btn btn-success btn-lg">Download CSV</button></a>
                 </div>
 
             </div>

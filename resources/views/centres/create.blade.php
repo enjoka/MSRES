@@ -32,15 +32,20 @@
         <div class="form-group">
             {!! Form::label('Select District') !!}<br />
 
-            {{ Form::select('district',$district)}}
+            {{ Form::select('district no',$district)}}
+
+        </div>
+        <div class="form-group">
+            {!! Form::label('name', 'Centre Number:', ['class' => 'control-label']) !!}
+            {!! Form::text('centre no', null, ['class' => 'form-control']) !!}
 
         </div>
 
-     <div class="form-group">
-      {!! Form::label('name', 'Centre Name:', ['class' => 'control-label']) !!}
-      {!! Form::text('name', null, ['class' => 'form-control']) !!}
+         <div class="form-group">
+          {!! Form::label('name', 'Centre Name:', ['class' => 'control-label']) !!}
+          {!! Form::text('centre name', null, ['class' => 'form-control']) !!}
 
-     </div>
+         </div>
 
 
 

@@ -9,7 +9,7 @@ class Region extends Model
 {
     //
 
-    protected $fillable = ['regionname'];
+    protected $fillable = ['region_name'];
 
 
 }

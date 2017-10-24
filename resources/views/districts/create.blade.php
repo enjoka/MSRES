@@ -27,6 +27,7 @@
 
   {!! Form::open([
       'route' => 'districts.store'
+
   ]) !!}
 
      <div class="form-group">
@@ -38,7 +39,7 @@
        <div class="form-group">
             {!! Form::label('Add region') !!}<br />
 
-           {{ Form::select('region',$regions)}}
+           {!! Form::select('region',$regions,null,[ 'class' => 'form-control']) !!}
 
 
         </div>

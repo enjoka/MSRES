@@ -7,61 +7,46 @@
 
 
 
-    <a href="{{ URL::to('districts/create') }}" class="btn btn-primary">Create District</a> <br/>
+    <div class="col-lg-10 col-lg-offset-1">
+        <h1><i class="fa fa-users"></i> District Administration <a href="{{ route('regions.index') }}" class="btn btn-default pull-right">regions</a>
+            <a href="{{ route('centres.index') }}" class="btn btn-default pull-right">Centres</a></h1>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
 
-    District list <br>
-
-    <!-- will be used to show any messages -->
-
-    @if(Session::has('flash_message'))
-        <div class="alert alert-success">
-            {{ Session::get('flash_message') }}
-        </div>
-    @endif
-
-
-
-
-    <table class="table table-striped table-hover ">
-        <thead>
-        <tr>
-
-            <th>District Number</th>
-            <th>District Name</th>
-            <th>Edit</th>
-            <th>delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        @if($districts->count())
-
-            @foreach($districts as $key => $district)
-                <tr id="tr_{{$district->id}}">
-                    <td>{{ ++$key }}</td>
-                    <td>{{ $district->districtName }}</td>
-
-
-                    <td><a href="{{route('districts.edit', ['district' => $district->id])}}"> edit</a></td>
-
-                    <td class="btn btn-default">
-                        {!! Form::open([
-                            'method' => 'DELETE',
-                            'route' => ['districts.destroy', $district->id]
-                                      ]) !!}
-                        {!! Form::submit('Delete?', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}
-                    </td>
+                    <th>District #</th>
+                    <th>District Name</th>
+                    <th>Operations</th>
                 </tr>
-            @endforeach
+                </thead>
+                <tbody>
+                @if($districts->count())
 
-        @endif
+                    @foreach($districts as $key => $district)
+                        <tr id="tr_{{$district->id}}">
+                            <td>{{ ++$key }}</td>
+                            <td>{{ $district->district_name }}</td>
+                            <td>
+                                <a href="{{ route('districts.edit', $district->id) }}" class="btn btn-info pull-left"
+                                   style="margin-right: 3px;">Edit</a>
 
-        </tbody>
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['districts.destroy', $district->id] ]) !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
+                    @endforeach
+
+                @endif
+
+                </tbody>
 
 
-    </table>
+            </table>
 
-
+            <a href="{{ route('districts.create') }}" class="btn btn-success">Add District</a>
 
 
 @stop

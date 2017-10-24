@@ -18,6 +18,12 @@ class RegionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isAdmin']); //middleware
+    }
+
+
     public function index()
     {
 
@@ -53,7 +59,7 @@ class RegionsController extends Controller
         $this->validate($request, ['name' => 'required']);
 
 
-          Region::create(['regionname' => $request->get('name')]);
+          Region::create(['region_name' => $request->get('name')]);
         // save reion
 
               // redirect after succesful saving
@@ -109,7 +115,7 @@ class RegionsController extends Controller
 
         $region = Region::findOrFail($request->get('id'));
 
-        $region->update(['regionname'=>$request->get('name')]);
+        $region->update(['region_name'=>$request->get('name')]);
 
         Session::flash('flash_message', 'region successfully updated!');
 

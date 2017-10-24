@@ -24,7 +24,7 @@
                         <a href="/candidates"><i class="fa  fa-users"></i> Candidates<span class="fa arrow"></span></a>
 
                     </li>
-                    
+
                     <li>
                         <a href="#"><i class="fa fa-cog"></i> Parameters<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -44,59 +44,19 @@
                                 {{ link_to_action('CoursesController@index',$title='Courses')}}
                             </li>
 
+
                         </ul>
                     </li>
-                    
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart"></i> Reports<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="{{ route('users.index') }}"><i class="fa fa-cog"></i> User<span class="fa arrow"></span></a>
+
                     </li>
 
                     <li>
-                        <a href="/"><i class="fa  fa-users"></i> Users<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="#"><i class="fa fa-bar-chart"></i> Reports<span class="fa arrow"></span></a>
+
                     </li>
-                    
-                    <li>
-                        <a href="#"><i class="fa fa-cogs"></i> Settings<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+
                     
                 </ul>
 

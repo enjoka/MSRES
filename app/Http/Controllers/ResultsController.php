@@ -15,6 +15,11 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+        $this->middleware(['auth', 'clearance']);
+    }
+
     public function index()
     {
         //
@@ -140,6 +145,7 @@ class ResultsController extends Controller
             $path = $request->file('imported_file')->getRealPath();
 
             $data = Excel::load($path, function($reader)
+
             {
             })->get();
 
