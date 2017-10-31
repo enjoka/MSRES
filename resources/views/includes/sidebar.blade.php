@@ -17,11 +17,11 @@
                     </li>
 
                     <li>
-                        <a href="/results"><i class="fa fa-book"></i> Results<span class="fa arrow"></span></a>
+                        <a href="{!! route("results.index") !!}"><i class="fa fa-book"></i> Results<span class="fa arrow"></span></a>
 
 
                     <li>
-                        <a href="/candidates"><i class="fa  fa-users"></i> Candidates<span class="fa arrow"></span></a>
+                        <a href="{!! route("candidates.index") !!}"><i class="fa  fa-users"></i> Candidates<span class="fa arrow"></span></a>
 
                     </li>
 
@@ -53,7 +53,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart"></i> Reports<span class="fa arrow"></span></a>
+                        <a href="{{ route('report-index') }}"><i class="fa fa-bar-chart"></i> Reports<span class="fa arrow"></span></a>
 
                     </li>
 

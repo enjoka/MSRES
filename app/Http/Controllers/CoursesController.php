@@ -8,13 +8,9 @@ use Session;
 
 class CoursesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function __construct() {
-        $this->middleware(['auth', 'clearance']);
+        $this->middleware(['auth']);
     }
 
     public function index()
@@ -26,11 +22,7 @@ class CoursesController extends Controller
         return view('courses.index', compact('courses'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //

@@ -20,7 +20,7 @@ class Clearance {
             return $next($request);
         }
 
-        if ($request->is('regions/create'))//If user is creating a post
+        if ($request->is('DistrictsController'))//If user is creating a post
         {
             if (!Auth::user()->hasPermissionTo('create'))
             {

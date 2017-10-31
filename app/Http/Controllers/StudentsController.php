@@ -19,6 +19,8 @@ class StudentsController extends Controller
     {
         //
 
+
+
         $candidates = Candidate::all();
         return view('students.index')->with('candidates');
     }

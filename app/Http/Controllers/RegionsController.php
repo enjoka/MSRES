@@ -20,7 +20,7 @@ class RegionsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin']); //middleware
+        $this->middleware(['auth']); //middleware
     }
 
 

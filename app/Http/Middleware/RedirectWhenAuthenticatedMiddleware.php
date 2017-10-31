@@ -2,11 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\UserPrivilege;
 use Closure;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
-class Admin
+class RedirectWhenAuthenticatedMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,16 +16,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        $user = User::all()->count();
+        dd(auth()->user());
+        if(auth()->user()->hasRole(UserPrivilege::CANDIDATE_ROLE)){
 
-
-        if (!($user == 1)) {
-            if (!Auth::user()->hasPermissionTo('Admin')) //If user does //not have this permission
-            {
-                abort('401');
-            }
+            dd($request->url());
+           // return redirect()->route('students.index');
         }
-
         return $next($request);
     }
 }

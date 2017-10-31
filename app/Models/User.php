@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
@@ -11,7 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    use HasRoles;
+    //use HasRoles;
 
 
     public function setPasswordAttribute($password)
@@ -28,12 +27,19 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles');
+
+    }
+
+    public function hasRole($roleId)
+    {
+      return $this->roles()->get()->map->id->contains($roleId);
+    }
 }
